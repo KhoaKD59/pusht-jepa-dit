@@ -56,7 +56,7 @@ def evaluate(model: JEPAWorldModel, loader, device, max_stat_batches: int = 32) 
     s_pred = s_copy = 0.0
     n = 0
     S_list, z_list = [], []
-    use_amp = (device.type == "cuda")
+    use_amp = False  # wm_main was trained in fp32 (GTX 1650 has no tensor cores)
     for i, batch in enumerate(loader):
         b = prep_batch(batch, device, pad=0)
         bs = len(b["obs"])
@@ -159,7 +159,7 @@ def main() -> None:
         [{"params": decay, "weight_decay": float(wm["weight_decay"])}, {"params": no_decay, "weight_decay": 0.0}],
         lr=float(wm["lr"]),
     )
-    use_amp = (device.type == "cuda")
+    use_amp = False  # wm_main was trained in fp32 (GTX 1650 has no tensor cores)
     scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
 
     epochs = int(wm["epochs"])

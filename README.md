@@ -112,6 +112,8 @@ python -c "import torch, gym_pusht, pymunk; print(torch.cuda.is_available(), pym
 
 ## Tái tạo kết quả
 
+wm_main được huấn luyện ở fp32. Huấn luyện lại sẽ cho kết quả gần nhưng không trùng từng chữ số vì GPU không tất định.
+
 Checkpoint (`*.pt`) và latents (`*.npy`) không được commit, nên cần chạy lần lượt các bước sau (khoảng 2 giờ trên GTX 1650):
 
 ```bash
