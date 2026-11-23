@@ -78,7 +78,7 @@ Loss dự đoán trong latent thấp hơn baseline "copy" từ k = 3 trở đi v
 Với n = 50, khoảng tin cậy 95% của 26% khoảng 16% đến 40%. Các cấu hình k = 6, 8, 12 và DDIM 8, 16 **không khác nhau có ý nghĩa thống kê**. Cấu hình chính được giữ là k = 8 (mặc định của Diffusion Policy), không chọn theo nhiễu. Các điểm rút ra được:
 
 - Encoder JEPA là thành phần cốt lõi (A1: 0%).
-- Chỉ cần ảnh là đủ, proprio không giúp thêm (A2).
+- Bỏ proprio (A2) không làm giảm success (32% so với 26%, khác biệt không có ý nghĩa với 50 seed) nhưng coverage trung bình giảm (0,657 so với 0,776), nên chưa kết luận được proprio có ích hay không.
 - DDIM 8 bước cho kết quả tương đương 16 bước với nửa độ trễ, nên demo live mặc định dùng 8 bước.
 - Thời gian hoàn thành chỉ tính trên các tập thành công và bị cắt ở 30 s, nên không dùng để so sánh tốc độ giữa các cấu hình.
 
