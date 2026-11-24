@@ -1,6 +1,6 @@
 data/
-outputs/runs/*/ckpt/
-*.pt
+outputs/runs/*/ckpt/*last.pt
+outputs/runs/wm_debug/ckpt/
 *.npy
 __pycache__/
 .ipynb_checkpoints/

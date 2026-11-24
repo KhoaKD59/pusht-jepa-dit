@@ -114,7 +114,7 @@ python -c "import torch, gym_pusht, pymunk; print(torch.cuda.is_available(), pym
 
 wm_main được huấn luyện ở fp32. Huấn luyện lại sẽ cho kết quả gần nhưng không trùng từng chữ số vì GPU không tất định.
 
-Checkpoint (`*.pt`) và latents (`*.npy`) không được commit, nên cần chạy lần lượt các bước sau (khoảng 2 giờ trên GTX 1650):
+Các checkpoint tốt nhất (`best.pt`) đã được lưu sẵn trong `outputs/runs/*/ckpt/` để có thể chạy thử nghiệm đánh giá hoặc demo live ngay mà không cần huấn luyện lại. Nếu muốn tự huấn luyện lại từ đầu (khoảng 2 giờ trên GTX 1650), chạy lần lượt các bước sau:
 
 ```bash
 # Bước 1: dữ liệu
@@ -164,7 +164,7 @@ src/
 scripts/                 # train, eval, export, make_figures, demo_live
 report/figures/          # hình dùng trong báo cáo
 media/                   # GIF và video demo
-outputs/runs/<run>/      # log.csv, config, hình của từng lần chạy (checkpoint bị .gitignore)
+outputs/runs/<run>/      # log.csv, config, hình của từng lần chạy, ckpt/best.pt
 ```
 
 ## Tài liệu tham khảo và nguồn
